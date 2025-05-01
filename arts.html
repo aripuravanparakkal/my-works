@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Works</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .card:hover { transform: scale(1.05); transition: transform 0.3s ease; }
+    </style>
+</head>
+<body style="background: url('bb.jpg') no-repeat center center fixed; background-size: cover;" class="text-white font-sans">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-teal-500 to-blue-600 shadow-lg">
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl font-bold">Our Works</h1>
+            <p class="mt-3 text-lg">Discover our portfolio of innovative and creative projects</p>
+        </div>
+    </header>
+
+    <!-- Filter Section -->
+    <section class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-center space-x-4">
+            <button class="filter-btn px-4 py-2 bg-teal-500 text-white rounded hover:bg-teal-600" data-filter="all">All</button>
+            <button class="filter-btn px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-600" data-filter="design">Design</button>
+            <button class="filter-btn px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-600" data-filter="tech">Tech</button>
+            <button class="filter-btn px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-600" data-filter="creative">Creative</button>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project 1 -->
+            <div class="card bg-gray-800 rounded-lg shadow-lg overflow-hidden fade-in" data-category="design">
+                <img src="f8482d6091562b034bfe346d3339c326.jpg" alt="Project 1" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h2 class="text-2xl font-semibold">Visual Studio (coding)</h2>
+                    <p class="mt-2 text-gray-400">Crafted a stunning brand identity for a client code.</p>
+                    <a href="https://aripuravanparakkal.github.io/rishan/#" class="mt-4 inline-block text-teal-400 hover:text-teal-300">View Details (For EX)</a>
+                </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="card bg-gray-800 rounded-lg shadow-lg overflow-hidden fade-in" data-category="tech">
+                <img src="ai.jpg" alt="Project 2" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h2 class="text-2xl font-semibold">AI Platform</h2>
+                    <p class="mt-2 text-gray-400">Developed a scalable AI-driven solution for automation.</p>
+                    <a href="http://127.0.0.1:5500/AI.HTML" class="mt-4 inline-block text-teal-400 hover:text-teal-300">View Details </a>
+                </div>
+            </div>
+            <!-- Project 3 -->
+            <div class="card bg-gray-800 rounded-lg shadow-lg overflow-hidden fade-in" data-category="creative">
+                <img src="multim.jpg" alt="Project 3" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h2 class="text-2xl font-semibold">Multimedia Campaign</h2>
+                    <p class="mt-2 text-gray-400">Created an engaging video and digital campaign.</p>
+                    <a href="https://youtu.be/PjFMwfTOskM?si=7YaHtGPnrLxcSOcR" class="mt-4 inline-block text-teal-400 hover:text-teal-300">View Details</a>
+                </div>
+            </div>
+            <!-- Project 4 -->
+            <div class="card bg-gray-800 rounded-lg shadow-lg overflow-hidden fade-in" data-category="design">
+                <img src="redisgn.jpg" alt="Project 4" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h2 class="text-2xl font-semibold">Website Redesign</h2>
+                    <p class="mt-2 text-gray-400">Revamped a corporate website with modern UX.</p>
+                    <a href="https://youtu.be/iNseBcTOJ58?si=NbeRfyvmBeDoETVN" class="mt-4 inline-block text-teal-400 hover:text-teal-300">View Details</a>
+                </div>
+            </div>
+            <!-- Project 5 -->
+            <div class="card bg-gray-800 rounded-lg shadow-lg overflow-hidden fade-in" data-category="design">
+                <img src="vedio.jpg" alt="Project 3" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h2 class="text-2xl font-semibold">video Editing</h2>
+                    <p class="mt-2 text-gray-400">Created an engaging video and digital campaign.</p>
+                    <a href="https://youtu.be/HV-2pUMKqws?si=ZKe-CWXZXfe0-NTR" class="mt-4 inline-block text-teal-400 hover:text-teal-300">View Details</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 mt-12">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <p class="text-gray-400">© 2025 Our Company. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade-in Animation on Scroll
+        const cards = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+        cards.forEach(card => observer.observe(card));
+
+        // Filter Functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projects = document.querySelectorAll('.card');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button style
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('bg-teal-500');
+                    btn.classList.add('bg-gray-700');
+                });
+                button.classList.remove('bg-gray-700');
+                button.classList.add('bg-teal-500');
+
+                // Filter projects
+                const filter = button.dataset.filter;
+                projects.forEach(project => {
+                    if (filter === 'all' || project.dataset.category === filter) {
+                        project.style.display = 'block';
+                    } else {
+                        project.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

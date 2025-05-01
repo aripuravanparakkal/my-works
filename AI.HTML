@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friendly AI Chatbot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body class="bg-gradient-to-br from-pink-100 to-blue-100 flex items-center justify-center min-h-screen">
+    <div id="root"></div>
+    <script type="text/babel">
+        function FriendlyChatBot() {
+            const [messages, setMessages] = React.useState([
+                { text: "Hey there! I'm your friendly AI buddy, ready to chat and help with anything on your mind! 😊 What's up?", sender: 'ai' }
+            ]);
+            const [input, setInput] = React.useState('');
+
+            const handleSend = () => {
+                if (input.trim() === '') return;
+
+                const userMessage = { text: input, sender: 'user' };
+                setMessages([...messages, userMessage]);
+                setInput('');
+
+                // Simulate friendly AI response
+                setTimeout(() => {
+                    const responses = [
+                        `Wow, "${input}"? That's super interesting! 😄 Tell me more!`,
+                        `Haha, love that! What's the story behind "${input}"?`,
+                        `Oh, nice one! 😊 How about you share a bit more about that?`,
+                        `You're full of surprises! What's next, "${input}"? 😎`
+                    ];
+                    const aiMessage = { 
+                        text: responses[Math.floor(Math.random() * responses.length)], 
+                        sender: 'ai' 
+                    };
+                    setMessages(prev => [...prev, aiMessage]);
+                }, 1000);
+            };
+
+            const handleKeyPress = (e) => {
+                if (e.key === 'Enter') {
+                    handleSend();
+                }
+            };
+
+            return (
+                <div className="w-full max-w-lg bg-white rounded-xl shadow-2xl p-6">
+                    <h1 className="text-3xl font-bold text-center text-purple-600 mb-6">Your Friendly AI Buddy</h1>
+                    <div className="h-96 overflow-y-auto mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+                        {messages.map((msg, index) => (
+                            <div
+                                key={index}
+                                className={`mb-3 p-3 rounded-lg max-w-xs ${
+                                    msg.sender === 'user'
+                                        ? 'bg-blue-500 text-white ml-auto'
+                                        : 'bg-purple-100 text-purple-800 mr-auto'
+                                }`}
+                            >
+                                {msg.text}
+                            </div>
+                        ))}
+                    </div>
+                    <div className="flex gap-2">
+                        <input
+                            type="text"
+                            value={input}
+                            onChange={(e) => setInput(e.target.value)}
+                            onKeyPress={handleKeyPress}
+                            className="flex-1 p-3 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                            placeholder="Chat with me! 😄"
+                        />
+                        <button
+                            onClick={handleSend}
+                            className="bg-purple-600 text-white p-3 rounded-r-lg hover:bg-purple-700 transition"
+                        >
+                            Send
+                        </button>
+                    </div>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<FriendlyChatBot />, document.getElementById('root'));
+    </script>
+</body>
+</html>
